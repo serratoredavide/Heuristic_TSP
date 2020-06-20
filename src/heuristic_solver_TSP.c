@@ -347,7 +347,6 @@ void VNS(instance *inst, int random_start) {
         random_GRASP(inst);
     }
 
-    printf("First 2-OPT\n");
     //local search
     opt_2(inst, inst->nodes_tour, 0);
 
@@ -357,7 +356,7 @@ void VNS(instance *inst, int random_start) {
     int swap_size;
     int count_failed_4_opt = 0;
     int count_failed_5_opt = 0;
-    int num_iterations = 100000;
+    int num_iterations = inst->timelimit;
     int dim_continous_failed = num_iterations / 100;
     int *swapper = (int *)malloc(dim_swapper * sizeof(int));
     int *local_best_tour = inst->nodes_tour;
@@ -404,17 +403,13 @@ void VNS(instance *inst, int random_start) {
 
         // x-opt move
         if (dim_swapper == 4) {
-            printf("\n4-OPT\n");
             make_4_opt_move(local_best_tour, new_tour, swapper, inst->nnodes);
         } else if (dim_swapper == 5) {
-            printf("\n5-OPT\n");
             make_5_opt_move(local_best_tour, new_tour, swapper, inst->nnodes);
         } else {
-            printf("\n6-OPT\n");
             make_6_opt_move(local_best_tour, new_tour, swapper, inst->nnodes);
         }
 
-        // printf("NEW 2-OPT\n");
         opt_2(inst, new_tour, 0);
 
         new_distance = 0;
@@ -432,17 +427,12 @@ void VNS(instance *inst, int random_start) {
             for (int i = 0; i < inst->nnodes; i++) {
                 local_best_tour[i] = new_tour[i];
             }
-            printf("New distance: %f\n", new_distance);
         } else {
             if (dim_swapper == 4)
                 count_failed_4_opt++;
             else if (dim_swapper == 5)
                 count_failed_5_opt++;
-
-            printf("Failed\n");
         }
-
-        printf("\n----------------------------\n");
         iterations++;
     }
 
@@ -534,18 +524,6 @@ void make_5_opt_move(int *local_best_tour, int *new_tour, int *swapper, int num_
         new_tour[size] = local_best_tour[i];
         size++;
     }
-
-    // printf("\n\nOLD TOUR\n");
-    // for (int i = 0; i < inst->nnodes; i++) {
-    //     printf("i %d: %d \n", i, inst->nodes_tour[i]);
-    // }
-    // printf("\n");
-
-    // printf("\n\nNEW TOUR\n");
-    // for (int i = 0; i < inst->nnodes; i++) {
-    //     printf("%d ", new_tour[i]);
-    // }
-    printf("\n\n");
 }
 
 /**
@@ -586,18 +564,6 @@ void make_6_opt_move(int *local_best_tour, int *new_tour, int *swapper, int num_
         new_tour[size] = local_best_tour[i];
         size++;
     }
-
-    // printf("\n\nOLD TOUR\n");
-    // for (int i = 0; i < inst->nnodes; i++) {
-    //     printf("i %d: %d \n", i, inst->nodes_tour[i]);
-    // }
-    // printf("\n");
-
-    // printf("\n\nNEW TOUR\n");
-    // for (int i = 0; i < inst->nnodes; i++) {
-    //     printf("%d ", new_tour[i]);
-    // }
-    printf("\n\n");
 }
 
 /**

@@ -24,7 +24,7 @@ ifeq ($(OS),Linux)
 	CPLEX_HOME = /opt/ibm/ILOG/CPLEX_Studio1210/cplex
 	CC = gcc
 	AR = ar rc
-	LIBS = -L.
+	LIBS = -L. -lm
 	INC = -I. -I./$(HEADERS_DIR)
 endif
 

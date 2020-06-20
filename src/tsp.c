@@ -1,5 +1,5 @@
 #include "tsp.h"
-
+#include <math.h>
 #include <unistd.h>
 // #include <time.h>
 
