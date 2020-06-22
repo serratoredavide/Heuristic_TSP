@@ -578,8 +578,8 @@ void simulated_annealing(instance *inst, int random_start) {
         print_error(ERROR_INIT_VALUE_STRING);
     //initialization
     if (random_start == 0) {
-        nearest_neighborhood(inst);
         if (VERBOSE >= 20) printf(NN_INIT_STRING);
+        nearest_neighborhood(inst);
     } else {
         if (VERBOSE >= 20) printf(GRASP_INIT_STRING);
         random_GRASP(inst);
