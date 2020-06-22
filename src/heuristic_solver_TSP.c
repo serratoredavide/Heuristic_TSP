@@ -338,6 +338,7 @@ void opt_2_swap(int *nodes, int start, int end) {
 void VNS(instance *inst, int random_start) {
     if (random_start > 1)
         print_error(ERROR_INIT_VALUE_STRING);
+    if (inst->timelimit == -1.0) print_error(TIME_LIMIT_NOT_FOUND_STRING);
     //initialization
     if (random_start == 0) {
         nearest_neighborhood(inst);

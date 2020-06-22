@@ -6,12 +6,11 @@
 #include "mystring.h"
 #include "utils.h"
 
-//#define DEBUG
 
 /**
  * @brief Memory allocation for heuristic structure
  * 
- * @param inst 
+ * @param inst Instance Structure
  */
 void init_heuristic_inst(instance *inst) {
     int num_nodes = inst->nnodes;

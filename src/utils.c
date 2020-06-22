@@ -166,7 +166,6 @@ void read_input(instance *inst) {
 
         if (strncmp(par_name, "TYPE", 4) == 0) {
             token1 = strtok(NULL, " :");
-            //if (strncmp(token1, "CVRP", 4) != 0) print_error(" format error:  only TYPE == CVRP implemented so far!!!!!!");
             active_section = 0;
             continue;
         }

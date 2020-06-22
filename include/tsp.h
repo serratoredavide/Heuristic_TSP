@@ -8,7 +8,7 @@
 #include <string.h>
 #include <time.h>
 
-#define VERBOSE 80  // printing level  (=10 only incumbent, =20 little output, =50-60 good, =70 verbose, >=100 cplex log)
+#define VERBOSE 80  // printing level  (=20 little output, =50-60 good, =80 to plot )
 
 //model type
 #define OPT2 0
