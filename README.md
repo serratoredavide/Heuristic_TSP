@@ -36,7 +36,7 @@ Parameters:
 
 	-help | --help          \\ for help
 	-file | -f | -input     \\ input instances
-	-timelimit              \\ Needed for VNS (number of iterations) and SA (time in seconds)
+	-time_limit             \\ Needed for VNS (number of iterations) and SA (time in seconds)
 	-solver_type            \\ 0 for 2-Opt, 1 for VNS, 2 for SA
 	-init                   \\ 0 for Nearest Neighborhood, 1 for Random GRASP
 
