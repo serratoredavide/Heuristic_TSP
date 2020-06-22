@@ -359,7 +359,7 @@ void VNS(instance *inst, int random_start) {
     int count_failed_5_opt = 0;
     int num_iterations = inst->timelimit;
     int dim_continous_failed = num_iterations / 100;
-    int *swapper = (int *)malloc(dim_swapper * sizeof(int));
+    int *swapper = (int *)malloc(6 * sizeof(int));
     int *local_best_tour = inst->nodes_tour;
     int *new_tour = (int *)calloc(inst->nnodes, sizeof(int));
 
