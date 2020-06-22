@@ -366,7 +366,6 @@ void VNS(instance *inst, int random_start) {
     for (int i = 0; i < inst->nnodes; i++) {
         local_best_distance += dist(local_best_tour[i], local_best_tour[(i + 1) % inst->nnodes], inst);
     }
-    printf("\nCurrent distance: %f\n", local_best_distance);
 
     while (iterations <= num_iterations) {
         //  switch to bigger space
@@ -460,11 +459,12 @@ void VNS(instance *inst, int random_start) {
 
 /**
  * @brief 4-Opt move on a tour
+ * Takes in input the current optimal tour, the nodes for the move and creates a new one through a 4-opt move
  * 
- * @param local_best_tour TODO
- * @param new_tour TODO
- * @param swapper TODO
- * @param num_nodes TODO
+ * @param local_best_tour The current optimal tour
+ * @param new_tour The new tour after the 4-opt move
+ * @param swapper Random nodes used for the 4-opt move
+ * @param num_nodes Total number of nodes
  */
 void make_4_opt_move(int *local_best_tour, int *new_tour, int *swapper, int num_nodes) {
     int size = 0;
@@ -491,12 +491,13 @@ void make_4_opt_move(int *local_best_tour, int *new_tour, int *swapper, int num_
 }
 
 /**
- * @brief 5-opt move on a tour
+ * @brief 5-Opt move on a tour
+ * Takes in input the current optimal tour, the nodes for the move and creates a new one through a 5-opt move
  * 
- * @param local_best_tour TODO
- * @param new_tour TODO
- * @param swapper TODO
- * @param num_nodes TODO
+ * @param local_best_tour The current optimal tour
+ * @param new_tour The new tour after the 5-opt move
+ * @param swapper Random nodes used for the 5-opt move
+ * @param num_nodes Total number of nodes
  */
 void make_5_opt_move(int *local_best_tour, int *new_tour, int *swapper, int num_nodes) {
     int size = 0;
@@ -528,11 +529,12 @@ void make_5_opt_move(int *local_best_tour, int *new_tour, int *swapper, int num_
 
 /**
  * @brief 6-Opt move on a tour
+ * Takes in input the current optimal tour, the nodes for the move and creates a new one through a 6-opt move
  * 
- * @param local_best_tour TODO
- * @param new_tour TODO
- * @param swapper TODO
- * @param num_nodes TODO
+ * @param local_best_tour The current optimal tour
+ * @param new_tour The new tour after the 6-opt move
+ * @param swapper Random nodes used for the 6-opt move
+ * @param num_nodes Total number of nodes
  */
 void make_6_opt_move(int *local_best_tour, int *new_tour, int *swapper, int num_nodes) {
     int size = 0;

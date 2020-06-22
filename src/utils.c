@@ -111,7 +111,7 @@ void parse_command_line(int argc, char **argv, instance *inst) {
     if (help) {
         printf("Parameters:\n");
         printf("-file | -f | -input : input file\n");
-        printf("-time_limit : time limit in seconds\n");
+        printf("-time_limit\nVNS: number of iterations\nSA: time limit in seconds\n");
         printf("-solver_type : how to solve problem.\n0 for 2-Opt.\n1 for VNS\n2 for SA\n");
         printf("-init : initialization type. 0 for NN, 1 for GRASP\n");
 
